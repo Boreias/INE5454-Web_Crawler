@@ -50,6 +50,7 @@ def analisaSite(site_analisado, lista_resultados, headers):
 
 
 if __name__ == '__main__':
+    file1 = open('out.json', 'w')
     tempo_inicial = time.time()
     lista_sites_mundo = ['https://sportsmonkie.com/most-popular-sports/',
                          'https://www.thetealmango.com/sports/most-popular-sport-in-the-world/',
@@ -75,5 +76,6 @@ if __name__ == '__main__':
         tempo_final = time.time()
         print('O tempo de processamento foi de ' + str((tempo_final - tempo_inicial)//1) + ' segundos')
         print(lista_resultados)
+        file1.write(json.dumps(lista_resultados, indent=4))
 
 
